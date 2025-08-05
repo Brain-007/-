@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>नेपाली पात्रो २०८२ - दशैं र वैकल्पिक दिनहरू</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #f8f9fa; }
+    .calendar { max-width: 1200px; margin: 30px auto; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .day { height: 130px; border: 1px solid #dee2e6; text-align: center; vertical-align: top; padding: 5px; font-size: 1rem; position: relative; }
+    .day .date { font-size: 1.3rem; font-weight: bold; }
+    .day .eng-date { font-size: 0.8rem; color: #444; }
+    .day .tithi { font-size: 0.8rem; color: #006400; margin-top: 3px; }
+    .day:hover { background-color: #f1f3f5; cursor: pointer; }
+    .today .date { background: #CCBF7A; border-radius: 50%; padding: 5px; color: black; font-weight: bold; }
+    .saturday .date { background: red; color: white; border-radius: 50%; padding: 5px; }
+    .holiday .date { background: red; color: white; border-radius: 50%; padding: 5px; }
+    .festival .date { background: #28a745; color: white; border-radius: 50%; padding: 5px; }
+    .optional .date { background: #007bff; color: white; border-radius: 50%; padding: 5px; }
+    .legend { margin-top: 25px; background: #f1f1f1; padding: 15px; border-radius: 10px; }
+    .legend-item { display: flex; align-items: center; margin-bottom: 8px; }
+    .legend-circle { width: 15px; height: 15px; border-radius: 50%; margin-right: 8px; }
+    .circle-red { background: red; }
+    .circle-gold { background: #CCBF7A; }
+    .circle-green { background: #28a745; }
+    .circle-blue { background: #007bff; }
+  </style>
+</head>
+<body>
+
+<div class="calendar">
+  <h2 class="text-center mb-4">नेपाली पात्रो २०८२</h2>
+  <div id="calendarBody"></div>
+  <div class="legend">
+    <h5>दैनिक विवरण</h5>
+    <div class="legend-item"><div class="legend-circle circle-red"></div> सार्वजनिक बिदा</div>
+    <div class="legend-item"><div class="legend-circle circle-gold"></div> आजको मिति</div>
+    <div class="legend-item"><div class="legend-circle circle-green"></div> पर्व / चाड</div>
+    <div class="legend-item"><div class="legend-circle circle-blue"></div> वैकल्पिक पर्व / दिन</div>
+  </div>
+</div>
+
+<script>
+const events2082 = {
+  "6-1": { type: "festival", name: "घटस्थापना", desc: "दशैंको पहिलो दिन, देवीको पूजाआराधना प्रारम्भ हुने दिन।" },
+  "6-7": { type: "festival", name: "फुलपाती", desc: "दशैंको सातौं दिन, देवी दुर्गाको फुलपाती घरमा भित्र्याइन्छ।" },
+  "6-8": { type: "holiday", name: "महाअष्टमी", desc: "दशैंको अष्टमी दिन देवी दुर्गाको विशेष पूजा हुन्छ।" },
+  "6-9": { type: "holiday", name: "महानवमी", desc: "नवमी दिनमा दुर्गा पूजा र बलिदान गरिन्छ।" },
+  "6-10": { type: "holiday", name: "विजया दशमी", desc: "दशैंको मुख्य दिन, टीका र जमरा लगाइन्छ।" },
+  "6-11": { type: "optional", name: "एकादशी", desc: "दशैंपछि वैकल्पिक रुपमा एकादशी व्रत।" },
+  "6-12": { type: "optional", name: "म्हा पूजा", desc: "नेपालमा विशेष गरी नेवार समुदायले मनाउने आत्मपूजा पर्व।" },
+  "6-13": { type: "optional", name: "किजा पूजा", desc: "भाइटीकापछि नेवार समुदायले मनाउने पर्व।" }
+};
+
+const months = ["बैशाख","जेठ","असार","श्रावण","भाद्र","आश्विन","कार्तिक","मंसिर","पौष","माघ","फाल्गुन","चैत्र"];
+
+async function getNepaliDate() {
+  return { bs_date: 20, bs_month: 4, en_date: "5 Aug 2025", tithi: "पूर्णिमा" };
+}
+
+async function renderCalendar() {
+  const todayData = await getNepaliDate();
+  const calendarBody = document.getElementById("calendarBody");
+  calendarBody.innerHTML = "";
+
+  months.forEach((monthName, idx) => {
+    let section = document.createElement("div");
+    section.classList.add("mb-5");
+    section.innerHTML = `<h4>${monthName} २०८२</h4>`;
+    let table = document.createElement("table");
+    table.classList.add("table","table-bordered");
+
+    let thead = `<thead class='table-light'><tr>
+      <th>आइत</th><th>सोम</th><th>मंगल</th><th>बुध</th><th>बिही</th><th>शुक्र</th><th>शनि</th>
+    </tr></thead>`;
+
+    let tbody = "<tbody>";
+    let date = 1;
+    let totalDays = 30;
+    let firstDay = idx % 7;
+
+    for (let i = 0; i < 6; i++) {
+      tbody += "<tr>";
+      for (let j = 0; j < 7; j++) {
+        if (i === 0 && j < firstDay) {
+          tbody += "<td></td>";
+        } else if (date > totalDays) {
+          tbody += "<td></td>";
+        } else {
+          let classes = ["day"];
+          let tooltip = "";
+
+          if (j === 6) { classes.push("saturday"); tooltip = "शनिबार 🤘"; }
+          if (todayData.bs_date === date && todayData.bs_month - 1 === idx) classes.push("today");
+
+          const key = `${idx+1}-${date}`;
+          let tithi = todayData.tithi || "तिथि उपलब्ध छैन";
+          let engDate = todayData.en_date || "--";
+
+          if (events2082[key]) {
+            classes.push(events2082[key].type);
+            tooltip = `${events2082[key].name}: ${events2082[key].desc}`;
+          }
+
+          tbody += `<td class="${classes.join(" ")}" title="${tooltip || tithi}">
+            <div class="date">${date}</div>
+            <div class="eng-date">${engDate}</div>
+            <div class="tithi">${tithi}</div>
+          </td>`;
+          date++;
+        }
+      }
+      tbody += "</tr>";
+    }
+    tbody += "</tbody>";
+    table.innerHTML = thead + tbody;
+    section.appendChild(table);
+    calendarBody.appendChild(section);
+  });
+}
+
+renderCalendar();
+</script>
+
+</body>
+</html>
+THIS CALENDAR IS CREATED BY MR.BRYAN 🇳🇵 	&#x1f1f3;&#x1f1f5;
