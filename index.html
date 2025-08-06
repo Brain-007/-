@@ -63,7 +63,7 @@
             const timeElement = document.getElementById('current-time');
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             timeElement.dateTime = now.toISOString();
-            timeElement.innerHTML = `Today is: ${now.toLocaleDateString(undefined, options)}, 
+            timeElement.innerHTML = `Today: ${now.toLocaleDateString(undefined, options)}, 
                                      Time: ${now.toLocaleTimeString()}`;
         }
 
