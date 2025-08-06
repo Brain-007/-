@@ -43,19 +43,8 @@
 <body>
 
 <div class="calendar">
-  <h2 class="text-center mb-4">मेरो नेपाली पात्रो २०८२</h2>
-  <div id="calendarBody"></div>
-  <div class="legend">
-    <h5>दैनिक विवरण</h5>
-    <div class="legend-item"><div class="legend-circle circle-red"></div> सार्वजनिक बिदा</div>
-    <div class="legend-item"><div class="legend-circle circle-gold"></div> आजको मिति</div>
-    <div class="legend-item"><div class="legend-circle circle-green"></div> पर्व / चाड</div>
-    <div class="legend-item"><div class="legend-circle circle-blue"></div> वैकल्पिक पर्व / दिन</div>
-    <p class="mt-2"><strong>टिप्पणी:</strong> यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद।</p>
-    <p class="mt-2"><strong>टिप्पणी:</strong> This website is created by Mr.Bryan. Please do not copy this page. It has taken a lot of effort to create this page. Thank you.</p> 
-<h1>DATE AND TIME</h1>
-    
-    <time id="current-time"></time>
+  <h2 class="text-center mb-4">मेरो नेपाली पात्रो २०८२🤘</h2>
+  <time id="current-time"></time>
 
     <script>
         function updateTime() {
@@ -68,9 +57,21 @@
         }
 
         setInterval(updateTime, 1000);
-        updateTime();
-    </script>	
-  </div>
+        updateTime();//
+    </script>
+    
+    <tbody id="calendarBody"></tbody>
+  </table>
+  <div id="calendarBody"></div>
+  <div class="legend">
+    <h5>दैनिक विवरण</h5>
+    <div class="legend-item"><div class="legend-circle circle-red"></div> सार्वजनिक बिदा</div>
+    <div class="legend-item"><div class="legend-circle circle-gold"></div> आजको मिति</div>
+    <div class="legend-item"><div class="legend-circle circle-green"></div> पर्व / चाड</div>
+    <div class="legend-item"><div class="legend-circle circle-blue"></div> वैकल्पिक पर्व / दिन</div>
+    <p class="mt-2"><strong>टिप्पणी:</strong> यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद।</p>
+    <p class="mt-2"><strong>टिप्पणी:</strong> This website is created by Mr.Bryan. Please do not copy this page. It has taken a lot of effort to create this page. Thank you.</p> 
+
 </div>
 
 <script>
@@ -217,7 +218,6 @@ const tithiData2082 = {
 
 // Nepali month names
 const months = ["बैशाख","जेठ","असार","श्रावण","भदौ","असोज","कार्तिक","मंसिर","पौष","माघ","फाल्गुन","चैत्र"];
-
 // Days in each Nepali month for 2082 BS (accurate as per standard calendar data)
 // This is crucial for correct date calculations.
 const nepaliMonthDays2082 = [
