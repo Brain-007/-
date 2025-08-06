@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>मेरो नेपाली पात्रो २०८२ - दशैं र वैकल्पिक दिनहरू</title>
+  <title>मेरो नेपाली पात्रो २०८२ - दशैं, तिहार, छठ र वैकल्पिक दिनहरू</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body { background: #f8f9fa; }
@@ -60,14 +60,26 @@
 // Event data for 2082 BS
 const events2082 = {
   // Month index (0-11) - Day
+  // Dashain
   "5-1": { type: "festival", name: "घटस्थापना", desc: "दशैंको पहिलो दिन, देवीको पूजाआराधना प्रारम्भ हुने दिन।" }, // Ashoj 1
   "5-7": { type: "festival", name: "फुलपाती", desc: "दशैंको सातौं दिन, देवी दुर्गाको फुलपाती घरमा भित्र्याइन्छ।" }, // Ashoj 7
   "5-8": { type: "holiday", name: "महाअष्टमी", desc: "दशैंको अष्टमी दिन देवी दुर्गाको विशेष पूजा हुन्छ।" }, // Ashoj 8
   "5-9": { type: "holiday", name: "महानवमी", desc: "नवमी दिनमा दुर्गा पूजा र बलिदान गरिन्छ।" }, // Ashoj 9
   "5-10": { type: "holiday", name: "विजया दशमी", desc: "दशैंको मुख्य दिन, टीका र जमरा लगाइन्छ।" }, // Ashoj 10
   "5-11": { type: "optional", name: "एकादशी", desc: "दशैंपछि वैकल्पिक रुपमा एकादशी व्रत।" }, // Ashoj 11
-  "5-12": { type: "optional", name: "म्हा पूजा", desc: "नेपालमा विशेष गरी नेवार समुदायले मनाउने आत्मपूजा पर्व।" }, // Ashoj 12
-  "5-13": { type: "optional", name: "किजा पूजा", desc: "भाइटीकापछि नेवार समुदायले मनाउने पर्व।" } // Ashoj 13
+
+  // Tihar (Kartik - Month 6)
+  "6-3": { type: "festival", name: "काग तिहार", desc: "यमपञ्चकको पहिलो दिन, कागको पूजा गरिन्छ।" },
+  "6-4": { type: "festival", name: "कुकुर तिहार", desc: "यमपञ्चकको दोस्रो दिन, कुकुरको पूजा गरिन्छ।" },
+  "6-5": { type: "festival", name: "लक्ष्मी पूजा", desc: "धनकी देवी लक्ष्मीको पूजा गरिन्छ।" },
+  "6-6": { type: "festival", name: "गोवर्धन पूजा / म्ह पूजा", desc: "गोवर्धन पर्वत र आत्मको पूजा गरिन्छ।" },
+  "6-7": { type: "festival", name: "भाइटीका / किजा पूजा", desc: "दिदीबहिनीले दाजुभाइलाई टीका लगाउने दिन।" },
+
+  // Chhath Parva (Kartik - Month 6)
+  "6-9": { type: "festival", name: "छठ पर्व प्रारम्भ (नहाय खाय)", desc: "छठ पर्वको पहिलो दिन, शुद्ध भोजन गरिन्छ।" },
+  "6-10": { type: "festival", name: "खरना", desc: "छठ पर्वको दोस्रो दिन, दिनभर व्रत बसी साँझ प्रसाद ग्रहण गरिन्छ।" },
+  "6-11": { type: "festival", name: "सँझिया घाट (अर्घ्य)", desc: "छठ पर्वको मुख्य दिन, अस्ताउँदो सूर्यलाई अर्घ्य दिइन्छ।" },
+  "6-12": { type: "festival", name: "भोरका अर्घ्य", desc: "छठ पर्वको अन्तिम दिन, उदाउँदो सूर्यलाई अर्घ्य दिइन्छ।" }
 };
 
 // Example Tithi data for 2082 BS
