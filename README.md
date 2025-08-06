@@ -1,2 +1,1 @@
-# -
-Open Source Nepali Calendar Website
+Open Source Nepali Calendar Website Created by Mr.Bryan.
