@@ -52,7 +52,24 @@
     <div class="legend-item"><div class="legend-circle circle-green"></div> पर्व / चाड</div>
     <div class="legend-item"><div class="legend-circle circle-blue"></div> वैकल्पिक पर्व / दिन</div>
     <p class="mt-2"><strong>टिप्पणी:</strong> यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद।</p>
-    <p class="mt-2"><strong>टिप्पणी:</strong> This website is created by Mr.Bryan. Please do not copy this page. It has taken a lot of effort to create this page. Thank you.</p>    
+    <p class="mt-2"><strong>टिप्पणी:</strong> This website is created by Mr.Bryan. Please do not copy this page. It has taken a lot of effort to create this page. Thank you.</p> 
+<h1>DATE AND TIME</h1>
+    
+    <time id="current-time"></time>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeElement = document.getElementById('current-time');
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            timeElement.dateTime = now.toISOString();
+            timeElement.innerHTML = `Today is: ${now.toLocaleDateString(undefined, options)}, 
+                                     Time: ${now.toLocaleTimeString()}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>	
   </div>
 </div>
 
