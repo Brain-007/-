@@ -174,7 +174,7 @@
             <p class="mt-2"><strong>टिप्पणी:</strong> थप अपडेटहरू चाँडै आउँनेछ, कृपया धैर्य राख्नुहोस् ।</p>
             <p class="mt-2"><strong>टिप्पणी:</strong> यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद।</p>
             <p class="mt-2"><strong>टिप्पणी:</strong> This website is created by Mr.Bryan. Please do not copy this page. It has taken a lot of effort to create this page. Thank you.</p>
-        <h3><strong>Number of  Site Visitors from the Date: August 7, 2025:</strong></h3>
+        <h3 id="visitorCountHeader"></h3>
         <div id="CounterVisitor">
           <span class="counter-item">0</span>
           <span class="counter-item">0</span>
@@ -190,6 +190,12 @@
         </div>
 
 <script>
+// This script now dynamically creates the visitor count header.
+const startDate = new Date('August 7, 2025');
+const options = { year: 'numeric', month: 'long', day: 'numeric' };
+const formattedDate = startDate.toLocaleDateString('en-US', options);
+document.getElementById('visitorCountHeader').innerHTML = `<strong>Website Visitors Since ${formattedDate}:</strong>`;
+
 var n = localStorage.getItem('on_load_counter');
 
 if (n === null) {
