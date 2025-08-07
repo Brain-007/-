@@ -158,6 +158,7 @@
         <!-- IFRAME for Nepali Clock Widget (Now centered with CSS) -->
         <div class="iframe-container">
             <iframe src="https://calendar-nepali.com/clockwidget/nepali-clock-widget-blue-horizontal.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:269px; height:120px;" allowtransparency="true"></iframe>
+            
         </div>
 
         <!-- This is where the calendar will be generated -->
@@ -172,7 +173,38 @@
             <p class="mt-2"><strong>टिप्पणी:</strong> थप अपडेटहरू चाँडै आउँनेछ, कृपया धैर्य राख्नुहोस् ।</p>
             <p class="mt-2"><strong>टिप्पणी:</strong> यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद।</p>
             <p class="mt-2"><strong>टिप्पणी:</strong> This website is created by Mr.Bryan. Please do not copy this page. It has taken a lot of effort to create this page. Thank you.</p>
+        <h3><strong>Number of  Site Visitors from the Date: August 7, 2025:</strong></h3>
+        <div id="CounterVisitor">
+          <span class="counter-item">0</span>
+          <span class="counter-item">0</span>
+          <span class="counter-item">1</span>
+          <span class="counter-item">1</span>
+          <span class="counter-item">8</span>
+          <span class="counter-item">4</span>
+		  <span class="counter-item">5</span>
+		  
+        </div>
 
+        <div id="CounterVisitor">
+        </div>
+
+<script>
+var n = localStorage.getItem('on_load_counter');
+
+if (n === null) {
+  n = 0;
+}
+n++;
+
+localStorage.setItem("on_load_counter", n);
+
+nums = n.toString().split('').map(Number);
+document.getElementById('CounterVisitor').innerHTML = '';
+for (var i of nums) {
+  document.getElementById('CounterVisitor').innerHTML += '<span class="counter-item">' + i + '</span>';
+}
+
+</script>
             
             <time id="current-time"></time>
         </div>
@@ -185,7 +217,7 @@
             const timeElement = document.getElementById('current-time');
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             timeElement.dateTime = now.toISOString();
-            timeElement.innerHTML = `Today: ${now.toLocaleDateString(undefined, options)}, Time: ${now.toLocaleTimeString()}`;
+            timeElement.innerHTML = `<strong>=> Today: ${now.toLocaleDateString(undefined, options)}, => Time: ${now.toLocaleTimeString()}</strong>`;
         }
         setInterval(updateTime, 1000);
         updateTime();
@@ -426,6 +458,7 @@
         
         // Render the calendar when the page loads
         renderSingleMonth(currentMonthIndex);
+        
     </script>
 </body>
 </html>
