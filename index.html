@@ -38,6 +38,7 @@
     .circle-gold { background: #CCBF7A; }
     .circle-green { background: #28a745; }
     .circle-blue { background: #007bff; }
+    .text-center-iframe { text-align: center; margin-bottom: 15px; }
   </style>
 </head>
 <body>
@@ -45,9 +46,10 @@
 
 <div class="calendar">
   <h2 class="text-center mb-4">       मेरो नेपाली पात्रो २०८२🤘</h2>
-  
-  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<iframe src="https://calendar-nepali.com/clockwidget/nepali-clock-widget-blue-horizontal.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0"  style="border:none; overflow:hidden; width:269px; height:120px;" allowtransparency="true"></iframe>
-    
+      <!-- IFRAME for Nepali Clock Widget (Now centered with CSS) -->
+    <div class="text-center-iframe">
+        <iframe src="https://calendar-nepali.com/clockwidget/nepali-clock-widget-blue-horizontal.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:269px; height:120px;" allowtransparency="true"></iframe>
+    </div>
     <tbody id="calendarBody"></tbody>
   </table>
   <div id="calendarBody"></div>
