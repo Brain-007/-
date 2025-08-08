@@ -3,44 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> मेरो नेपाली पात्रो २०८२ - By Mr.Bryan 🇳🇵 , कृपया मेरो नेपाली क्यालेन्डर आफ्नो साथीभाइ, परिवार र प्रियजनहरूलाई सेएर गर्नुहोला, धन्नेबाद।❣️🤗🤘</title>
+    <title>मेरो नेपाली पात्रो २०८२ - By Mr.Bryan 🇳🇵 , कृपया मेरो नेपाली क्यालेन्डर आफ्नो साथीभाइ, परिवार र प्रियजनहरूलाई सेएर गर्नुहोला, धन्नेबाद।❣️�🤘</title>
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: #f8f9fa;
-    }
-    .calendar {
-        position: relative;
-        max-width: 1200px;
-        margin: 30px auto;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        background: none; /* remove the solid white */
-        overflow: hidden;
-    }
-    .calendar-bg-overlay {
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        width: 100%; height: 100%;
-        background: url('https://github.com/user-attachments/assets/db444a5c-c856-413c-8703-077cecd734fc') center center/cover no-repeat;
-        opacity: 0.18; /* adjust for effect */
-        z-index: 0;
-        pointer-events: none;
-        border-radius: 10px;
-    }
-    .calendar > *:not(.calendar-bg-overlay) {
-        position: relative;
-        z-index: 1;
-        /* Optional: add a subtle background to content for better readability */
-        background: rgba(255,255,255,0.85);
-        border-radius: 10px;
-    }
-	 .day {
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        /* Custom styles for the calendar to ensure it looks great */
+        .calendar {
+            max-width: 1200px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .day {
             min-height: 130px;
             border: 1px solid #dee2e6;
             text-align: center;
@@ -155,44 +137,12 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        /* Styles for the new visitor counter */
-        .visitor-counter-container {
-            background-color: #f1f3f5;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .visitor-counter-container h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #495057;
-            margin-bottom: 10px;
-        }
-        .visitor-counter-container #visitorCount {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #007bff;
-            animation: pulse-animation 1.5s infinite;
-        }
-        @keyframes pulse-animation {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        .visitor-counter-container #statusMessage {
-            font-size: 0.9rem;
-            color: #6c757d;
-        }
     </style>
     
 </head>
-
 <body onmousedown="return false" onselectstart="return false">
+
     <div class="calendar">
-        <div class="calendar-bg-overlay"></div>
         <h2 class="text-center mb-4 text-3xl font-bold text-gray-800">मेरो नेपाली पात्रो २०८२🤘</h2>
 
         <!-- New Navigation for previous/next month -->
@@ -215,7 +165,6 @@
         <!-- This is where the calendar will be generated -->
         <div id="calendarBody"></div>
 
-        
         <div class="legend">
             <h5>दैनिक विवरण</h5>
             <div class="legend-item"><div class="legend-circle circle-red"></div> सार्वजनिक बिदा</div>
@@ -225,11 +174,45 @@
             <p class="mt-2"><strong>टिप्पणी:</strong> थप अपडेटहरू चाँडै आउँनेछ, कृपया धैर्य राख्नुहोस् ।</p>
             <p class="mt-2"><strong>टिप्पणी:</strong> यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद।</p>
             <p class="mt-2"><strong>टिप्पणी:</strong> This website is created by Mr.Bryan. Please do not copy this page. It has taken a lot of effort to create this page. Thank you.</p>
-            <!-- New visitor counter section -->
-        <div class="visitor-counter-container">
-            <h2>Total Website Visitors</h2>
-            <p id="visitorCount" class="text-5xl font-bold">...</p>
-            <p id="statusMessage">Loading visitor count...</p>
+        <h3 id="visitorCountHeader"></h3>
+        <div id="CounterVisitor">
+          <span class="counter-item">0</span>
+          <span class="counter-item">0</span>
+          <span class="counter-item">1</span>
+          <span class="counter-item">1</span>
+          <span class="counter-item">8</span>
+          <span class="counter-item">4</span>
+		  <span class="counter-item">5</span>
+		  
+        </div>
+
+        <div id="CounterVisitor">
+        </div>
+
+<script>
+// This script now dynamically creates the visitor count header.
+const startDate = new Date('August 7, 2025');
+const options = { year: 'numeric', month: 'long', day: 'numeric' };
+const formattedDate = startDate.toLocaleDateString('en-US', options);
+document.getElementById('visitorCountHeader').innerHTML = `<strong>Website Visitors Since ${formattedDate}:</strong>`;
+
+var n = localStorage.getItem('on_load_counter');
+
+if (n === null) {
+  n = 0;
+}
+n++;
+
+localStorage.setItem("on_load_counter", n);
+
+nums = n.toString().split('').map(Number);
+document.getElementById('CounterVisitor').innerHTML = '';
+for (var i of nums) {
+  document.getElementById('CounterVisitor').innerHTML += '<span class="counter-item">' + i + '</span>';
+}
+
+</script>
+            
             <time id="current-time"></time>
         </div>
     </div>
@@ -275,6 +258,11 @@
             // Holi (फाल्गुन - Month 10)
             "11-18": { type: "festival", name: "फागु पूर्णिमा (होली)", desc: "रंगहरूको पर्व, पहाड क्षेत्रमा मनाइने होली पर्व।" },
             "11-19": { type: "festival", name: "फागु पूर्णिमा (होली)", desc: "रंगहरूको पर्व, तराई क्षेत्रमा मनाइने होली पर्व।" },
+
+            // Janai Purnima (Shrawan - Month 3)
+            "3-24": { type: "festival", name: "जनै पुर्णिमा (रक्षा बन्धन)", desc: "जनै फेर्ने र दिदीबहिनीले दाजुभाइलाई रक्षा बन्धन बाँधिदिने पर्व।" },
+            // Gai Jatra (Shrawan - Month 3)
+            "3-25": { type: "festival", name: "गाई जात्रा", desc: "वर्षभरि दिवंगत भएका आफन्तहरूको सम्झनामा निकालिने जात्रा।" },
         };
 
         // Example Tithi data for 2082 BS (simplified)
@@ -484,93 +472,6 @@
         renderSingleMonth(currentMonthIndex);
         
     </script>
-    
-    <!-- Firebase SDKs for real-time visitor counter -->
-    <script type="module">
-        // Import necessary Firebase functions
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, onSnapshot, increment } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Global variables provided by the Canvas environment
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-        // Get UI elements for the visitor counter
-        const visitorCountElement = document.getElementById('visitorCount');
-        const statusMessageElement = document.getElementById('statusMessage');
-
-        // Main function to run the application
-        async function runVisitorCounter() {
-            try {
-                // Initialize Firebase app
-                const app = initializeApp(firebaseConfig);
-                const db = getFirestore(app);
-                const auth = getAuth(app);
-
-                let userId;
-                
-                // Sign in the user. We use a custom token if available, otherwise anonymously.
-                if (initialAuthToken) {
-                    await signInWithCustomToken(auth, initialAuthToken);
-                } else {
-                    await signInAnonymously(auth);
-                }
-                
-                // Get the user ID after successful authentication
-                userId = auth.currentUser.uid;
-                
-                console.log("Authenticated with user ID:", userId);
-
-                // Define the path for the public visitor count document
-                // This uses the Canvas-provided appId to create a unique path
-                const visitorDocPath = `artifacts/${appId}/public/data/visitors/total`;
-                const visitorDocRef = doc(db, visitorDocPath);
-                
-                // Try to increment the count, creating the document if it doesn't exist
-                try {
-                    // Check if the document exists before trying to update it
-                    const docSnap = await getDoc(visitorDocRef);
-                    if (!docSnap.exists()) {
-                        // If the document doesn't exist, create it with a count of 1
-                        await setDoc(visitorDocRef, { count: 1 });
-                        console.log("Visitor document created with initial count.");
-                    } else {
-                        // If it exists, increment the count by 1
-                        await setDoc(visitorDocRef, { count: increment(1) }, { merge: true });
-                        console.log("Visitor count incremented.");
-                    }
-                } catch (error) {
-                    // Log the error but don't stop the application
-                    console.error("Error updating visitor count:", error);
-                }
-                
-                // Use onSnapshot to listen for real-time updates to the visitor count
-                onSnapshot(visitorDocRef, (docSnap) => {
-                    if (docSnap.exists()) {
-                        const data = docSnap.data();
-                        const count = data.count || 0;
-                        visitorCountElement.textContent = count;
-                        statusMessageElement.textContent = "Visitor count is live!";
-                    } else {
-                        // Handle the case where the document might have been deleted
-                        visitorCountElement.textContent = 0;
-                        statusMessageElement.textContent = "Error: Visitor count not found.";
-                    }
-                }, (error) => {
-                    console.error("Error listening to visitor count:", error);
-                    statusMessageElement.textContent = "Error loading visitor count.";
-                });
-
-            } catch (error) {
-                console.error("Failed to initialize or authenticate with Firebase:", error);
-                statusMessageElement.textContent = "Failed to connect to the database.";
-            }
-        }
-        
-        // Start the application when the window loads
-        window.onload = runVisitorCounter;
-    </script>
 </body>
 </html>
+�
