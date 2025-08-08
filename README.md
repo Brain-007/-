@@ -1,5 +1,4 @@
-(![Mr bryan](https://github.com/user-attachments/assets/db444a5c-c856-413c-8703-077cecd734fc)
-)
+![Mr bryan](https://github.com/user-attachments/assets/db444a5c-c856-413c-8703-077cecd734fc)
 टिप्पणी: यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद ।
 
 टिप्पणी: This website is created by Mr.Bryan. Please do not copy this page. It has taken a lot of effort to create this page. Thank you.
