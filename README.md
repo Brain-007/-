@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-Open Source Nepali Calendar Website Created by Mr.Bryan. </head>
-<body onmousedown="return false" onselectstart="return false">
 ![image alt] (https://github.com/Brain-007/mero-repo/blob/64a38a91cf592c2c2d291c155bb4f0f3bc1402c8/Mr%20bryan.jpg)
 टिप्पणी: यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद ।
 
@@ -24,5 +19,4 @@ Lorem ipsum ft bryan dolor sit amet consectetur adipiscing elit. Quisque faucibu
 Lorem ipsum ft bryan dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
 
 Lorem ipsum ft bryan dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. 
-</body>
-</html>
+
