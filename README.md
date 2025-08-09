@@ -1,6 +1,6 @@
 ![Mr bryan](https://github.com/user-attachments/assets/db444a5c-c856-413c-8703-077cecd734fc)
 
-![Mr bryan]([https://github.com/user-attachments/assets/db444a5c-c856-413c-8703-077cecd734fc](https://github.com/Brain-007/mero-repo/blob/main/MrBryan%20Mix%20Microwave%20Recipes.pdf))
+![Mr Bryan]([https://github.com/user-attachments/assets/db444a5c-c856-413c-8703-077cecd734fc](https://github.com/Brain-007/mero-repo/blob/main/MrBryan%20Mix%20Microwave%20Recipes.pdf))
 
 <body onmousedown="return false" onselectstart="return false">
 टिप्पणी: यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद ।
