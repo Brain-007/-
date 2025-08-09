@@ -2,8 +2,6 @@
 
 ![Mr.Bryan]((https://github.com/Brain-007/mero-repo/blob/37c7d391569cff00d64ffbf022f2698d39330eb0/MrBryan%20Mix%20Microwave%20Recipes.pdf))
 
-<iframe src="https://docs.google.com/gview?url=https://path.com/to/your/pdf.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
-
 <body onmousedown="return false" onselectstart="return false">
 टिप्पणी: यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद ।
 
