@@ -21,6 +21,7 @@
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative; /* Needed for the cursor effect to work correctly */
         }
         .day {
             min-height: 130px;
@@ -197,6 +198,17 @@
             background-color: #bb2d3b;
             transform: scale(1.05);
         }
+        /* Styles for the rainbow cursor effect */
+        .dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: red; /* Initial color */
+            transition: transform 0.2s ease, background-color 0.5s ease;
+            pointer-events: none; /* Make sure the dots don't interfere with clicks */
+            z-index: 9999;
+        }
     </style>
     
 </head>
@@ -215,6 +227,14 @@
                 &rarr; &gt;
             </button>
         </div>
+        
+        <!-- Month selector (Removed the dropdown as it was unused and could be confusing) -->
+        <!-- <div class="text-center mb-4">
+            <select id="monthSelect" onchange="changeMonth()" class="p-2 border rounded-md">
+                <option value="0">बैशाख</option>
+                ...
+            </select>
+        </div> -->
 
         <!-- Clock widget -->
         <div class="iframe-container">
@@ -339,7 +359,7 @@
         };
 
         // Tithi data for 2082 BS
-            const tithiData2082 = {
+        const tithiData2082 = {
             "0-1": "प्रतिपदा", "0-2": "द्वितीया", "0-3": "तृतीया", "0-4": "चतुर्थी", "0-5": "पञ्चमी",
             "0-6": "षष्ठी", "0-7": "सप्तमी", "0-8": "अष्टमी", "0-9": "नवमी", "0-10": "दशमी",
             "0-11": "एकादशी", "0-12": "द्वादशी", "0-13": "त्रयोदशी", "0-14": "चतुर्दशी", "0-15": "पूर्णिमा",
@@ -528,9 +548,6 @@
             tbody += "</tbody>";
             table.innerHTML = thead + tbody;
             calendarBody.appendChild(table);
-            
-            // Update month selector
-            document.getElementById('monthSelect').value = monthIndex;
         }
 
         // Functions for month navigation
@@ -541,12 +558,6 @@
 
         function goToNextMonth() {
             currentMonthIndex = (currentMonthIndex + 1) % 12;
-            renderSingleMonth(currentMonthIndex);
-        }
-        
-        // Change month from dropdown
-        function changeMonth() {
-            currentMonthIndex = parseInt(document.getElementById('monthSelect').value);
             renderSingleMonth(currentMonthIndex);
         }
         
@@ -573,5 +584,57 @@
         // Render the calendar when the page loads
         renderSingleMonth(currentMonthIndex);
     </script>
+    
+    <!-- New script for the rainbow cursor effect -->
+    <script>
+        const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722'];
+        const numDots = 15;
+        const dotSize = 10;
+        const dots = [];
+        const container = document.body;
+
+        // Create the dots and add them to the body
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            dot.style.backgroundColor = colors[i % colors.length];
+            container.appendChild(dot);
+            dots.push(dot);
+        }
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        // Update mouse position on mouse move
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Animation loop to move the dots
+        function animateDots() {
+            let prevX = mouseX;
+            let prevY = mouseY;
+
+            dots.forEach((dot, index) => {
+                const currentX = dot.offsetLeft + dotSize / 2;
+                const currentY = dot.offsetTop + dotSize / 2;
+                const targetX = (prevX - dotSize / 2);
+                const targetY = (prevY - dotSize / 2);
+
+                dot.style.left = `${targetX}px`;
+                dot.style.top = `${targetY}px`;
+
+                // Update previous position for the next dot in the trail
+                prevX = currentX;
+                prevY = currentY;
+            });
+            requestAnimationFrame(animateDots);
+        }
+
+        // Start the animation
+        animateDots();
+    </script>
+
 </body>
 </html>
