@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>मेरो नेपाली पात्रो २०८२ - By Mr.Bryan 🇳🇵 , कृपया मेरो नेपाली पात्रो आफ्नो साथीभाई, परिवार र प्रियजनहरूलाई सेएर गर्नुहोला, धन्नेबाद।❣️🤗🤘</title>
+    <title>मेरो नेपाली पात्रो २०८२ - By Mr.Bryan 🇳🇵</title>
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -12,8 +12,8 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f9fa;
+            padding-bottom: 20px;
         }
-        /* Custom styles for the calendar to ensure it looks great */
         .calendar {
             max-width: 1200px;
             margin: 30px auto;
@@ -50,7 +50,7 @@
             margin-top: 3px;
         }
         .today {
-            background-color: #fce883 !important; /* A nice, bright gold for today */
+            background-color: #fce883 !important;
             box-shadow: 0 0 10px rgba(252, 232, 131, 0.5);
             border: 2px solid #e0c656;
         }
@@ -137,15 +137,75 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        /* Responsive design improvements */
+        @media (max-width: 768px) {
+            .day {
+                min-height: 100px;
+                padding: 3px;
+            }
+            .day .date {
+                font-size: 1.1rem;
+            }
+            .day .eng-date {
+                font-size: 0.7rem;
+            }
+            .day .tithi {
+                font-size: 0.7rem;
+            }
+            .month-nav-btn {
+                padding: 0.3rem 0.8rem;
+                font-size: 1.2rem;
+            }
+            h2.text-center {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Counter styles */
+        .counter-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .counter-item {
+            display: inline-block;
+            width: 30px;
+            height: 40px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            font-size: 24px;
+            margin: 0 2px;
+            border-radius: 5px;
+        }
+
+        /* FPL button style */
+        .fpl-button {
+            display: inline-block;
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        .fpl-button:hover {
+            background-color: #bb2d3b;
+            transform: scale(1.05);
+        }
     </style>
     
 </head>
-<body onmousedown="return false" onselectstart="return false">
+
 
     <div class="calendar">
-        <h2 class="text-center mb-4 text-3xl font-bold text-gray-800">मेरो नेपाली पात्रो २०८२🤘</h2>
+        <h2 class="text-center mb-4 text-3xl font-bold text-gray-800">मेरो नेपाली पात्रो २०८२ 🤘</h2>
 
-        <!-- New Navigation for previous/next month -->
+        <!-- Navigation -->
         <div class="flex justify-between items-center mb-6">
             <button class="month-nav-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg" onclick="goToPreviousMonth()">
                 &lt; &larr;
@@ -156,69 +216,60 @@
             </button>
         </div>
 
-        <!-- IFRAME for Nepali Clock Widget (Now centered with CSS) -->
-        <div class="iframe-container">
-            <iframe src="https://calendar-nepali.com/clockwidget/nepali-clock-widget-blue-horizontal.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:269px; height:120px;" allowtransparency="true"></iframe>
-            
+        <!-- Month selector dropdown -->
+        <div class="text-center mb-4">
+            <label for="monthSelect" class="mr-2 font-medium">महिना छान्नुहोस्:</label>
+            <select id="monthSelect" class="p-2 border rounded" onchange="changeMonth()">
+                <option value="0">बैशाख</option>
+                <option value="1">जेठ</option>
+                <option value="2">असार</option>
+                <option value="3">श्रावण</option>
+                <option value="4">भदौ</option>
+                <option value="5">असोज</option>
+                <option value="6">कार्तिक</option>
+                <option value="7">मंसिर</option>
+                <option value="8">पौष</option>
+                <option value="9">माघ</option>
+                <option value="10">फाल्गुन</option>
+                <option value="11">चैत्र</option>
+            </select>
         </div>
 
-        <!-- This is where the calendar will be generated -->
+        <!-- Clock widget -->
+        <div class="iframe-container">
+            <iframe src="https://calendar-nepali.com/clockwidget/nepali-clock-widget-blue-horizontal.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:269px; height:120px;" allowtransparency="true"></iframe>
+        </div>
+
+        <!-- Calendar body -->
         <div id="calendarBody"></div>
 
+        <!-- Legend and footer -->
         <div class="legend">
-            <h5>दैनिक विवरण</h5>
+            <h5 class="text-lg font-bold mb-3">दैनिक विवरण</h5>
             <div class="legend-item"><div class="legend-circle circle-red"></div> सार्वजनिक बिदा</div>
             <div class="legend-item"><div class="legend-circle circle-gold"></div> आजको मिति</div>
             <div class="legend-item"><div class="legend-circle circle-green"></div> पर्व / चाड</div>
             <div class="legend-item"><div class="legend-circle circle-blue"></div> वैकल्पिक पर्व / दिन</div>
-            <p class="mt-2"><strong>टिप्पणी:</strong> थप अपडेटहरू चाँडै आउँनेछ, कृपया धैर्य राख्नुहोस् ।</p>
-            <p class="mt-2"><strong>टिप्पणी:</strong> यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद।</p>
-            <p class="mt-2"><strong>टिप्पणी:</strong> This website is created by Mr.Bryan. Please do not copy this page. It has taken a lot of effort to create this page. Thank you.</p>
-            <p class="mt-2"><strong>टिप्पणी:</strong> Best Viewed on Desktop💻</p>
-            <p class="mt-2"><strong>Notice: Hello There Namaste 🙏 . If You Play FPL, For the 2025/26 Fantasy Premier League Why Don't You Join Our Mini-League 😜🤘 </strong></p>
-            <a href="javascript:window.open('https://fantasy.premierleague.com/leagues/auto-join/4nqygr', 'yourWindowName', 'width=500,height=500');" class="fpl-button">
+            
+            <div class="mt-5 space-y-2">
+                <p><strong>टिप्पणी:</strong> थप अपडेटहरू चाँडै आउँनेछ, कृपया धैर्य राख्नुहोस् ।</p>
+                <p><strong>टिप्पणी:</strong> यो वेवसाइट Mr.Bryan द्वारा निर्मित हो कृपया यो पेज कपी नगर्नुहोला। यो पेज बनाऊन धेरै मेहेनत लागेको छ धन्नेबाद।</p>
+                <p><strong>टिप्पणी:</strong> This website is created by Mr.Bryan. Please do not copy this page. It has taken a lot of effort to create this page. Thank you.</p>
+                <p><strong>टिप्पणी:</strong> Best Viewed on Desktop💻</p>
+                <p class="mt-3"><strong>Notice: Hello There Namaste 🙏 . If You Play FPL, For the 2025/26 Fantasy Premier League Why Don't You Join Our Mini-League 😜🤘 </strong></p>
+                <a href="javascript:window.open('https://fantasy.premierleague.com/leagues/auto-join/4nqygr', 'yourWindowName', 'width=500,height=500');" class="fpl-button">
                     Click Here To Join Our FPL Mini-League 25/26 🤘🖱🌍🗺 𝄃𝄂𝄂𝄀𝄁𝄃𝄂𝄂𝄃️
                 </a>
-        <p class="mt-2"><h3 id="visitorCountHeader"></h3>
-        <div id="CounterVisitor">
-          <span class="counter-item">0</span>
-          <span class="counter-item">0</span>
-          <span class="counter-item">1</span>
-          <span class="counter-item">1</span>
-          <span class="counter-item">8</span>
-          <span class="counter-item">4</span>
-		  <span class="counter-item">5</span>
-		  
-        </div>
-
-        <div id="CounterVisitor">
-        </div></p>
-
-<script>
-// This script now dynamically creates the visitor count header.
-const startDate = new Date('August 7, 2025');
-const options = { year: 'numeric', month: 'long', day: 'numeric' };
-const formattedDate = startDate.toLocaleDateString('en-US', options);
-document.getElementById('visitorCountHeader').innerHTML = `<strong>Website Visitors Since ${formattedDate}:</strong>`;
-
-var n = localStorage.getItem('on_load_counter');
-
-if (n === null) {
-  n = 0;
-}
-n++;
-
-localStorage.setItem("on_load_counter", n);
-
-nums = n.toString().split('').map(Number);
-document.getElementById('CounterVisitor').innerHTML = '';
-for (var i of nums) {
-  document.getElementById('CounterVisitor').innerHTML += '<span class="counter-item">' + i + '</span>';
-}
-
-</script>
+            </div>
             
-            <p class="mt-2"><time id="current-time"></time></p>
+            <div class="text-center mb-4">
+                <h3 id="visitorCountHeader" class="font-bold mb-2"></h3>
+                <div id="CounterVisitor" class="counter-container"></div>
+            </div>
+            
+            <div class="text-center mb-4">
+                <p class="mt-2"><time id="current-time"></time></p>
+            </div>
         </div>
     </div>
 
@@ -306,8 +357,8 @@ for (var i of nums) {
             "4-30": { type: "festival", name: "जितिया पर्व", desc: "जितिया पर्वको विशेष दिन।" },
         };
 
-        // Example Tithi data for 2082 BS (simplified)
-        const tithiData2082 = {
+        // Tithi data for 2082 BS
+            const tithiData2082 = {
             "0-1": "प्रतिपदा", "0-2": "द्वितीया", "0-3": "तृतीया", "0-4": "चतुर्थी", "0-5": "पञ्चमी",
             "0-6": "षष्ठी", "0-7": "सप्तमी", "0-8": "अष्टमी", "0-9": "नवमी", "0-10": "दशमी",
             "0-11": "एकादशी", "0-12": "द्वादशी", "0-13": "त्रयोदशी", "0-14": "चतुर्दशी", "0-15": "पूर्णिमा",
@@ -390,7 +441,6 @@ for (var i of nums) {
             "11-26": "चतुर्दशी", "11-27": "औंसी", "11-28": "प्रतिपदा", "11-29": "द्वितीया", "11-30": "तृतीया",
         };
 
-
         // Nepali month names
         const months = ["बैशाख","जेठ","असार","श्रावण","भदौ","असोज","कार्तिक","मंसिर","पौष","माघ","फाल्गुन","चैत्र"];
         // Days in each Nepali month for 2082 BS
@@ -398,7 +448,7 @@ for (var i of nums) {
             31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30
         ];
 
-        // Baisakh 1, 2082 BS falls on Monday, April 14, 2025 AD. (Sunday = 0, Monday = 1)
+        // Baisakh 1, 2082 BS falls on Monday, April 14, 2025 AD
         const startDayOfWeek2082Baisakh = 1;
 
         // Function to convert Nepali (BS) date to Gregorian (AD) date
@@ -441,7 +491,7 @@ for (var i of nums) {
             let date = 1;
             const totalDaysInMonth = nepaliMonthDays2082[monthIndex];
 
-            // Calculate the starting day of the week for the current month.
+            // Calculate the starting day of the week for the current month
             let firstDayOfMonth = (startDayOfWeek2082Baisakh);
             for (let i = 0; i < monthIndex; i++) {
                 firstDayOfMonth = (firstDayOfMonth + nepaliMonthDays2082[i]) % 7;
@@ -461,25 +511,26 @@ for (var i of nums) {
                         const adDate = getADDateForBSDate(2082, monthIndex, date);
                         const engDateString = `${adDate.getDate()} ${adDate.toLocaleString('en-us', { month: 'short' })} ${adDate.getFullYear()}`;
 
-                        // Check if it's Saturday and add the new tooltip
-                        if (j === 6) { classes.push("saturday"); tooltip = "शनिबार 🤘"; }
+                        // Saturday styling
+                        if (j === 6) { classes.push("saturday"); }
 
-                        // Check if it's today's date
-                        if (adDate.getFullYear() === todayADYear && adDate.getMonth() === todayADMonth && adDate.getDate() === todayADDay) {
+                        // Today's date
+                        if (adDate.getFullYear() === todayADYear && 
+                            adDate.getMonth() === todayADMonth && 
+                            adDate.getDate() === todayADDay) {
                             classes.push("today");
-                            if (tooltip) tooltip += " / ";
-                            tooltip += "आजको मिति";
+                            tooltip += "आजको मिति\n";
                         }
 
-                        // Check for specific events
+                        // Events and tithi
                         const eventKey = `${monthIndex}-${date}`;
                         let currentTithi = tithiData2082[`${monthIndex}-${date}`] || "तिथि उपलब्ध छैन";
+                        
+                        tooltip += currentTithi + "\n";
 
                         if (events2082[eventKey]) {
                             classes.push(events2082[eventKey].type);
-                            tooltip = `${events2082[eventKey].name}: ${events2082[eventKey].desc}`;
-                        } else if (tooltip === "") {
-                            tooltip = currentTithi;
+                            tooltip += `${events2082[eventKey].name}: ${events2082[eventKey].desc}`;
                         }
 
                         tbody += `<td class="${classes.join(" ")}" title="${tooltip}">
@@ -496,6 +547,9 @@ for (var i of nums) {
             tbody += "</tbody>";
             table.innerHTML = thead + tbody;
             calendarBody.appendChild(table);
+            
+            // Update month selector
+            document.getElementById('monthSelect').value = monthIndex;
         }
 
         // Functions for month navigation
@@ -509,9 +563,34 @@ for (var i of nums) {
             renderSingleMonth(currentMonthIndex);
         }
         
+        // Change month from dropdown
+        function changeMonth() {
+            currentMonthIndex = parseInt(document.getElementById('monthSelect').value);
+            renderSingleMonth(currentMonthIndex);
+        }
+        
+        // Visitor counter
+        const startDate = new Date('August 7, 2025');
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = startDate.toLocaleDateString('en-US', options);
+        document.getElementById('visitorCountHeader').innerHTML = `<strong>Website Visitors Since ${formattedDate}:</strong>`;
+
+        var n = localStorage.getItem('on_load_counter');
+        if (n === null) {
+            n = 0;
+        }
+        n++;
+        localStorage.setItem("on_load_counter", n);
+
+        nums = n.toString().split('').map(Number);
+        const counterElement = document.getElementById('CounterVisitor');
+        counterElement.innerHTML = '';
+        for (var i of nums) {
+            counterElement.innerHTML += '<span class="counter-item">' + i + '</span>';
+        }
+        
         // Render the calendar when the page loads
         renderSingleMonth(currentMonthIndex);
-        
     </script>
 </body>
 </html>
